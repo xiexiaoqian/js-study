@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c5-JavaScript对象</title>
+    <script>
+      /***************************1.对象属性***************************/
+      var person = { name: 'John', age: 31, favColor: 'green', height: 183 }
+      var x = person.age
+      var y = person['age']
+
+      //内置长度属性用于计算属性或字符串中的数字
+      var course = { name: 'JS', lessons: 54 }
+      console.log('length属性：' + course.name.length) // -> 2
+
+      //更新对象的属性
+      var ourDog = { name: 'Camper', legs: 4, tails: 1, friends: ['everything!'] }
+      ourDog.name = 'Happy Camper'
+      ourDog['narme'] = 'Happy Camper'
+      ourDog.bark = 'bow-wow'
+
+      var c1 = ourDog['tails'] //  1
+      // 删除 tails 属性
+      delete ourDog['tails']
+      var c2 = ourDog['tails'] //  undefined
+      console.log('删除属性' + ourDog) //object object
+      console.log(c2) //  undefined
+
+      /***************************2.对象方法***************************/
+      //调用方法
+      var a = 'age'
+      var myObj = {
+        name: 'Loen',
+        age: '28',
+        eat: function() {
+          return "I'm eating"
+        }
+      }
+      console.log(myObj['name']) // Loen
+      console.log(myObj[a]) // 可以用变量访问对象属性
+      console.log(myObj['eat']()) // 返回 I'm eating
+
+      /***************************3.对象构造器***************************/
+      /*
+        在JavaScript中，this通常指向的是我们正在执行的函数本身，或者是指向该函数所属的对象（运行时）
+        一旦有了对象构造器，就可以创建新的对象实例
+      */
+      function Person(firstname, lastname, age, eyecolor) {
+        this.firstname = firstname
+        this.lastname = lastname
+        this.age = age
+        this.eyecolor = eyecolor
+      }
+      var myFather = new Person('John', 'Doe', 50, 'blue')
+      var myMother = new Person('Sally', 'Rally', 48, 'green')
+      console.log('对象构造器：')
+      console.log(myFather.age) // -> 50
+      console.log(myMother.firstname) // -> Sally
+
+      /***************************4.对象初始化***************************/
+      //创建单个对象
+      var John = { name: 'John', age: 25 }
+      var Loen = { name: 'Loen', age: 28 }
+
+      //换行与否没区别，对象定义可以跨多行
+      //无论如何创建对象，访问属性和方法的语法不会更改
+      var John = {
+        name: 'John',
+        age: 25
+      }
+      var Loen = {
+        name: 'Loen',
+        age: 28
+      }
+
+      /***************************5.添加方法***************************/
+      //在构造函数中定义方法
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+        this.changeName = function(name) {
+          this.name = name
+        }
+      }
+      var p = new Person('Loen', 28)
+      p.changeName('John')
+      /*
+      ！！！！！！！这里控制台会报错：p.changeName 不是函数！！！！！！！！！！
+      */
+
+      //也可以在构造函数外部定义一个函数，通过函数名关联到对象的属性上
+      function Person(name, age) {
+        this.name = name
+        this.age = age
+        this.yearOfBirth = bornYear // 关联 bornYear 函数，当关联到对象属性时，不需要括号
+      }
+
+      function bornYear() {
+        return new Date().getFullYear() - this.age
+      }
+
+
+    </script>
+  </head>
+  <body></body>
+</html>

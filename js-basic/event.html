@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>js 事件的几种类型</title>
+</head>
+
+<body>
+
+    <!-- 绑定this对象 -->
+    <button onclick="handleClick(this)">按钮1</button>
+    <button onclick="handleClick(this)">按钮2</button>
+    <button onclick="handleClick(this)">按钮3</button>
+    <button onclick="handleClick(this)">按钮4</button>
+
+    <!-- 遍历DOM数组 -->
+    <button onclick="handleClick1()">按钮5</button>
+    <button onclick="handleClick1()">按钮6</button>
+    <button onclick="handleClick1()">按钮7</button>
+    <button onclick="handleClick1()">按钮8</button>
+
+
+    <script>
+        // 绑定this对象
+        function handleClick(obj) {
+            let text = obj.innerText
+            alert(text)
+        }
+
+        //遍历DOM数组
+        function handleClick1() {
+            let buttons = document.getElementsByName('button')
+
+            for (let index = 3; index < buttons.length; index++) {
+                const element = buttons[index];
+                
+                let value = element.textContent
+            }
+            alter(value)
+
+        }
+    </script>
+</body>
+
+</html>

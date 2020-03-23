@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c7.1-JS核心对象之String</title>
+    <script>
+        var str = "Hello, Nier"; 
+        var a = str.toLowerCase(); // 把字符串转为小写 
+        var b = str.toUpperCase(); // 吧字符串转为大写 
+        var c = "   Hello world ".trim(); //去掉字符串两边的空白
+        var str = "Hello world, welcome to the w3cschool."; 
+        var n = str.indexOf("welcome"); // -> 13 
+        var c = str.indexOf("loen"); // -> -1
+        console.log('indexOf测试：' + n + ' ' + c)
+        var str = "Mr Blue has a blue house and a blue car and a blue hat";
+        // 将字符串中首次出现的blue替换成red 
+        var f=str.replace("blue", "red"); // -> Mr Blue has a red house and a blue car and a blue hat 
+        console.log(f)
+        // 用正则匹配字符串中所有出现的blue并替换成red 
+        var m=str.replace(/blue/g, "red"); // -> Mr red has a red house and a red car and a red hat
+        console.log(m)
+        var str = "Hello world!"; 
+        document.write(str.substring(3) + "<br>"); //从索引3开始（包含）
+        document.write(str.substring(3, 7)); //从索引3开始到7结束（都包含）
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

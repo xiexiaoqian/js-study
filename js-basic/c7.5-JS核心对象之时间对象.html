@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c7.5-JS核心对象之时间对象</title>
+
+    <script>
+      
+
+      //每秒打印一次当前浏览器的时间
+      function printTime() {
+        var d = new Date()
+        var hours = d.getHours()
+        var mins = d.getMinutes()
+        var secs = d.getSeconds()
+        document.body.innerHTML = hours + ':' + mins + ':' + secs
+      }
+      setInterval(printTime, 1000) 
+
+      /*
+       innerHTML 属性设置或返回元素的HTML内容。
+       在上面的的例子中，我们正在改变文档体的HTML内容。
+       这将每秒覆盖内容，而不是重复打印到屏幕。
+      */
+    </script>
+  </head>
+  <body></body>
+</html>

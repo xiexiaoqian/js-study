@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/dist/style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="page-content">
+    <div class="card">
+    </div>
+  </div>
+
+</body>
+
+<script>
+  var cards = [
+    {
+      title: 'Mountain View',
+      copy: 'Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains',
+      button: 'View Trips'
+    },
+    {
+      title: 'To The Beach',
+      copy: 'Plan your next beach trip with these fabulous destinations',
+      button: 'View Trips'
+    },
+    {
+      title: 'Desert Destinations',
+      copy: "It's the desert you've always dreamed of",
+      button: 'Book Now'
+    },
+    {
+      title: 'Explore The Galaxy',
+      copy: 'Seriously, straight up, just blast off into outer space today',
+      button: 'Book Now'
+    }
+  ]
+  console.log(cards)
+
+  main()
+
+  function main() {
+    let card = document.getElementsByClassName('card')[0]
+
+    let content = document.createElement('div')
+    content.classList.add('content')
+
+    for (let index = 0; index < cards.length; index++) {
+      const card = cards[index];
+      const contentStr = `
+      <h2 class="title"> ${card.title} </h2>
+      <p class="copy"> ${card.copy} </p>
+      <button class="btn"> ${card.button} </button>
+    `
+      content.innerHTML = contentStr
+
+    }
+    card.appendChild(content)
+
+
+  }
+</script>
+
+</html>

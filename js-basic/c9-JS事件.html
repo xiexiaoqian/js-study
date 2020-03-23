@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c9-JS事件</title>
+</head>
+<style>
+    img {
+        width: 300px;
+        height: 200px;
+    }
+</style>
+<body>
+    <!-- *******************************9.1 事件流********************************* -->
+    <p id="tip">这边显示提示</p>
+    <h2 id="tip">这边显示提示</h2>
+    <p onclick="clickfn()">点击我看看</p>
+    <input type="text" onfocus="focusfn()" onblur="blurfn()" value="获得焦点" />
+    <br /><br />
+    <div onmouseover="moverfn()" onmouseout="moutfn()">
+      鼠标放进来
+    </div>
+
+    <!-- *******************************9.2 处理事件********************************* -->
+    <p id="demo">demo</p>
+    <p onload="doSomething()">doSomething</p>
+    <input type="text" id="name" onchange="change()" />
+
+    <!-- *******************************9.5 幻灯片********************************* -->
+    <button onclick="prev()">上一张</button>
+    <img
+      id="slider"
+      src="../image/img (32).jpg"
+    />
+    <button onclick="next()">下一张</button>
+
+    <!-- *******************************9.6 表单验证********************************* -->
+    <form onsubmit="return validate()" method="post">
+      Number: <input type="text" name="num1" id="num1" />
+      <br />
+      Repeat: <input type="text" name="num2" id="num2" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+  <script>
+    function clickfn() {
+      console.log("点击事件");
+    }
+    function focusfn() {
+      console.log("获得焦点");
+    }
+    function focusfn() {
+      console.log("焦点离开");
+    }
+    function moverfn() {
+      console.log("鼠标移入");
+    }
+    function moutfn() {
+      console.log("鼠标移出");
+    }
+    // 可以给元素绑定事件监听:
+    var x = document.getElementById("demo");
+    x.onclick = function() {
+      document.getElementById("date").innerHTML = new Date();
+    };
+    // 当用户进入或离开页面时，触发 onload 和 onunload 事件。
+    //在页面加载后执行操作时，这些操作非常有用
+    function doSomething() {
+      console.log("页面加载");
+    }
+    // onchange 事件主要用于文本框。当文本框内的文本发生变化并且焦点从元素中丢失时，调用事件处理程序
+    function change() {
+      var x = document.getElementById("name");
+      x.value = x.value.toUpperCase(); // 转成大写
+    }
+
+    /*
+        事件监听
+        addEventListener() 方法将事件处理程序附加到元素，而不会覆盖现有的事件处理程序
+        在添加事件类型的时候没有on, 用的是 click 而不是 onclick
+    */
+    var ele = document.getElementById("name");
+    ele.addEventListener("click", myFunction);
+    ele.addEventListener("mouseover", myFunction);
+    function myFunction() {
+      alert("Hello JavaScript！");
+    }
+
+    /*
+        删除事件监听
+        可以使用 removeEventListener 删除事件监听
+    */
+    ele.removeEventListener("mouseover", myFunction);
+    // 创建一个事件处理程序，在执行后会自动删除：
+    var btn = document.getElementById("demo");
+    btn.addEventListener("click", myFunction);
+    function myFunction() {
+      alert(Math.random());
+      btn.removeEventListener("click", myFunction);
+    }
+
+    /*
+        幻灯片
+    */
+    var images = [
+      "../image/img (32).jpg",
+      "../image/img (33).jpg",
+      "../image/img (34).jpg"
+    ];
+    var num = 0;
+    function next() {
+      var slider = document.getElementById("slider");
+      num++;
+      if (num >= images.length) {
+        num = 0;
+      }
+      slider.src = images[num];
+    }
+    function prev() {
+      var slider = document.getElementById("slider");
+      num--;
+      if (num < 0) {
+        num = images.length - 1;
+      }
+      slider.src = images[num];
+    }
+
+    /*
+        表单验证
+    */
+    function validate() {
+      var n1 = document.getElementById("num1");
+      var n2 = document.getElementById("num2");
+      if (n1.value != "" && n2.value != "") {
+        if (n1.value == n2.value) {
+          return true;
+        }
+      }
+      alert("输入两个值不相等,请重新输入!");
+      return false;
+    }
+  </script>
+</html>

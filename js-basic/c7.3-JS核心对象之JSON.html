@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c7.3-JS核心对象之JSON</title>
+    <script>
+      /*
+      JSON语法规则
+      数据为 键/值 对。
+      数据由逗号分隔。
+      大括号保存对象
+      方括号保存数组
+       */
+      /*
+      未知遗留问题！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+      */
+      //   var jaon =
+      //     '{"sites":[' +
+      //     '{"name":"baidu", "url":"www.baidu.com"},' +
+      //     '{"name":"Google", "url":"www.google.com"},' +
+      //     '{"name":"Taobao", "url":"www.taobao.com"} ] }'
+      //   obj = JSON.parse(jaon)
+      //   document.getElementById('demo').innerHTML = obj.sites[1].name + ' ' + obj.sites[1].url
+
+      var str = { name: 'baidu', site: 'http://www.baidu.com' }
+      str_pretty1 = JSON.stringify(str)
+      document.write('只有一个参数情况：')
+      document.write('<br>')
+      document.write('<pre>' + str_pretty1 + '</pre>')
+      document.write('<br>')
+      str_pretty2 = JSON.stringify(str, null, 4)
+      document.write('使用参数的情况：')
+      document.write('<br>')
+      document.write('<pre>' + str_pretty2 + '</pre>')
+    </script>
+  </head>
+  <body>
+    <div id="demo">what</div>
+  </body>
+</html>

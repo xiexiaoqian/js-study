@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="demo">
+      <span class="demo">Hello</span>
+    </div>
+    <p class="demo">Hi</p>
+
+    <div id="demo">
+        <p>第一行</p>
+        <p>第二行</p>
+    </div>
+    <script>
+      var arr = document.getElementsByClassName('demo') 
+      //访问第二个元素
+      arr[1].innerHTML = 'Hi I am Peter'
+
+      var a = document.getElementById("demo");
+        var arr = a.childNodes;
+        for (var x = 0; x < arr.length; x++) {
+          arr[x].innerHTML = "新的文本";
+        }
+    </script>
+  </body>
+  <script>
+      /*
+      document.createTextNode(text) 创建一个新的文本节点
+    */
+    var p = document.createElement("p");
+    var node = document.createTextNode("一些新的文本");
+    //添加文本到段落
+    p.appendChild(node);
+    var div = document.getElementById("demo");
+    //将段落添加到div中
+    div.appendChild(p);
+
+    /*
+      移除元素
+      要删除HTML元素，必须选择元素的父项并使用 removeChild(node) 方法
+    */
+    var parent = document.getElementById("demo");
+    var child = document.getElementById("p2");
+    parent.removeChild(child);
+
+    /*
+      替换元素
+      要替换HTML元素，使用 element.replaceChild(newNode,oldNode) 方法
+    */
+    var p = document.createElement("p");
+    var node = document.createTextNode("这是新的文本");
+    p.appendChild(node);
+    var parent = document.getElementById("demo");
+    var child = document.getElementById("p1");
+    parent.replaceChild(p, child);
+  </script>
+</html>

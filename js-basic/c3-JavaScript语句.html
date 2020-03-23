@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c3-JavaScript语句</title>
+    <script>
+      /***************************1.条件语句***************************/
+      //if-else 嵌套
+      var course = 1
+      if (course == 1) {
+        document.write('<h1>HTML 教程</h1>')
+      } else if (course == 2) {
+        document.write('\n' + '<h1>CSS 教程</h1>')
+      } else {
+        document.write('\n' + '<h1>JavaScript 教程</h1>')
+      }
+
+      //switch语句
+      var n = null
+      switch (n) {
+        case 1:
+          document.write('执行代码块1')
+          break
+        case 2:
+          document.write('执行代码块2')
+          break
+        default:
+          document.write('n 与 case 1 和 case 2 都不匹配的时候执行的代码')
+      }
+      //实例
+      function myFunction() {
+        var x
+        var d = new Date().getDay() // 获取周几的方法
+        switch (d) {
+          case 0:
+            x = '今天是星期日'
+            break
+          case 1:
+            x = '今天是星期一'
+            break
+          case 2:
+            x = '今天是星期二'
+            break
+          case 3:
+            x = '今天是星期三'
+            break
+          case 4:
+            x = '今天是星期四'
+            break
+          case 5:
+            x = '今天是星期五'
+            break
+          case 6:
+            x = '今天是星期六'
+            break
+        }
+        return x
+      }
+      console.log(myFunction() + '<br>')
+
+      //循环语句
+      /*如果省略了语句 2，那么必须在循环内提供 break。
+    否则循环就无法停下来。这样有可能令浏览 器崩溃。
+    */
+      var myArray = []
+      for (var i = 1; i < 10; i += 2) {
+        myArray.push(i)
+      }
+
+      //do while
+      var x = '',
+        i = 0
+      do {
+        x = x + 'The number is ' + i + '<br>'
+        i++
+      } while (i < 5)
+      document.write(x)
+
+      /*
+        break 
+        break 语句可用于跳出循环。 
+        continue 语句跳出循环后，会继续执行该循环之后的代码（如果有的话）：
+      */
+      var x = ''
+      for (i = 0; i < 10; i++) {
+        if (i == 3) {
+          break
+        }
+        x = x + 'The number is ' + i + '<br>'
+      }
+      document.write(x)
+
+      var x = ''
+      for (i = 0; i <= 10; i++) {
+        if (i == 3) {
+          continue
+        }
+        x = '数值是： ' + i + '<br>'
+        document.write(x)
+      }
+
+
+
+
+    </script>
+  </head>
+  <body></body>
+</html>

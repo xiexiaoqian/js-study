@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c7.2-JS核心对象之Window</title>
+    <script>
+      //open（）方法，打开一个新的浏览器窗口或查找一个已命名窗口
+      function openWin() {
+        myWindow = window.open('', '', 'width=400,height=400')
+        myWindow.document.write("<p>这是'我的窗口'</p>")
+        myWindow.focus() //把键盘焦点给与一个窗口
+      }
+      openWin()
+
+      //setTimeout() 方法，在指定的毫秒数后调用函数或计算表达式
+      // setInterval() 方法,重复执行
+
+      //打开一个新窗口，3秒后关闭
+      var myWindow = window.open('', '', 'width=800, height=800')
+      myWindow.document.write("<p>这是一个新窗口'</p>")
+      setTimeout(function() {
+        myWindow.close()
+      }, 3000)
+
+      var myVar
+      function myFunction() {
+        myVar = setTimeout(function() {
+          alert('Hello')
+        }, 3000)
+      }
+
+      // clearTimeout() 方法,阻止函数的执行
+      function myStopFunction() {
+        clearTimeout(myVar)
+      }
+
+      //调用函数
+      myFunction()
+      myStopFunction()
+
+    </script>
+  </head>
+
+  <body></body>
+</html>

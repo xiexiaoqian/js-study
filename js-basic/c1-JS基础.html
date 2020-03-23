@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter1-JavaScript概述</title>
+    <script src="demo.js"></script>
+</head>
+
+<style>
+    p {
+        background-color: #ddd;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="col">
+                <p>Minima inventore molestias blanditiis nobis, consequuntur tempora dicta?</p>
+            </div>
+            <div class="col">
+                <p>Iste fugiat quia cum asperiores expedita inventore at.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Tenetur reiciendis perspiciatis culpa, harum magnam fugiat iure.</p>
+            </div>
+            <div class="col">
+                <p>Quia asperiores consectetur laudantium, officiis corporis veniam? Iure!</p>
+            </div>
+            <div class="col">
+                <p>Tempore culpa enim qui optio. Aliquam, placeat neque.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="title">
+                <p>Labore, molestias unde voluptatem reprehenderit numquam rerum consequatur.</p>
+            </div>
+            <div class="col" id="content">
+                <p>Obcaecati hic perspiciatis cum sed maxime. Distinctio, quis.</p>
+            </div>
+            <div class="col" id="app">
+                <p>Asperiores ab soluta quidem molestias autem, hic dicta?</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.write("<h1>Hello JavaScript!<h1>")
+    // window.alert("弹出警告框")
+    // console.log("控制台输出")
+
+    //尝试innerHTML
+    document.getElementById("app").innerHTML = "内容"
+
+    /* 
+    下面的这些代码会输出 
+    一个标题和一个段落 
+    并将代表主页的开始 
+    */ 
+    document.getElementById("title").innerHTML="欢迎来到我的主页"; 
+    document.getElementById("content").innerHTML="这是我的第一个段落。";
+</script>
+
+</html>
